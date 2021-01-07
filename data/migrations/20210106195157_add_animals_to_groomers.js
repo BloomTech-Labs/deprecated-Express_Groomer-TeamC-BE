@@ -1,13 +1,16 @@
 exports.up = (knex) => {
-    return knex.schema.createTable('groomers', function (table) {
-
-      table.boolean('dogs')
-      table.boolean('cats')
-      
+    return knex.schema.table('groomers', function (table) {
+        table.boolean('dogs')
+        table.boolean('cats')
     });
   };
 
 
+
 exports.down = (knex) => {
-  return knex.schema.dropTableIfExists('groomers');
-};
+    return knex.schema.table('groomers', function (table) {
+      table.dropColumn('dogs');
+      table.dropColumn('cats');
+    });
+  };
+  
