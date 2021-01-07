@@ -6,7 +6,6 @@ exports.up = (knex) => {
   };
 
 
-
 exports.down = (knex) => {
     return knex.schema.table('groomers', function (table) {
       table.dropColumn('dogs');
