@@ -35,6 +35,8 @@ const groomers = [
     walk_rate: faker.random.number(30000),
     day_care_rate: faker.random.number(30000),
     vet_visit_rate: faker.random.number(30000),
+    dogs: true,
+    cats: false,
   },
 ];
 
