@@ -14,6 +14,7 @@ exports.up = (knex) => {
     table.string('country', 128);
     table.string('photo_url');
     table.timestamps(true, true);
+    table.specificType('stringarray', 'favorite_groomers ARRAY');
   });
 };
 
