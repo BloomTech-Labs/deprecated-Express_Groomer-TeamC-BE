@@ -35,6 +35,12 @@ router.put('/:id/removeFav', async (req, res) => {
       });
     }
     const customer = await customersModel.findById(req.params.id);
+    if(!customer){
+      return res.status(404).json({
+        message: 'the customer with that id does not exist',
+      });
+    }
+
     if(req.body.favorite_groomers){
       const oldFav = customer.favorite_groomers;
       const index = oldFav.indexOf(req.body.favorite_groomers);
@@ -48,6 +54,9 @@ router.put('/:id/removeFav', async (req, res) => {
         newBody
         );
         return res.status(200).json(updatedCustomer);
+      }
+      else{
+        return res.status(404).json({message:'Groomer not found among favorites'});
       }  
     }
   }
