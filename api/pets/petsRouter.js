@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const petsModel = require('./petsModel');
 
-router.get('/', async (req, res) => {
+router.get('/getAllPets/:id', async (req, res) => {
   try {
-    const pets = await petsModel.findAll();
+    const pets = await petsModel.findAll(req.params.id);
     return res.status(200).json(pets);
   } catch (err) {
     res.status(500).json({ message: err.message });
