@@ -29,6 +29,7 @@ const customers = [
     city: 'San Bruno',
     state: 'California',
     country: 'USA',
+    favorite_groomers: [12, 1],
   },
 ];
 
