@@ -2,7 +2,6 @@ exports.up = (knex) => {
     return knex.schema.table('pets', function (table) {
       table.integer('customer_id')
         .unsigned()
-        .notNullable()
         .references('id')
         .inTable('customers')
         .onUpdate('CASCADE')
