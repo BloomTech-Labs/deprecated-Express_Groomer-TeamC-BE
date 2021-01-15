@@ -6,10 +6,10 @@ exports.up = (knex) => {
         .inTable('customers')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      table.string('species').notNullable();
+      table.string('species')
       table.string('breed');
-      table.integer('age').notNullable();
-      table.integer('weight').notNullable();
+      table.integer('age')
+      table.integer('weight')
       table.string('vaccinations');
     });
   };
