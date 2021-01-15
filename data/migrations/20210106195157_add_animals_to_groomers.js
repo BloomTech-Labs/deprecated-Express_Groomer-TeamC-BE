@@ -8,8 +8,8 @@ exports.up = (knex) => {
 
 exports.down = (knex) => {
     return knex.schema.table('groomers', function (table) {
-      table.dropColumn('dogs')
-      table.dropColumn('cats')
+      table.dropColumn('dogs') 
+      table.dropColumn('cats') 
     });
   };
   
