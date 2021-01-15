@@ -2,15 +2,14 @@ exports.up = (knex) => {
     return knex.schema.table('pets', function (table) {
       table.integer('customer_id')
         .unsigned()
-        .notNullable()
         .references('id')
         .inTable('customers')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      table.string('species').notNullable();
+      table.string('species');
       table.string('breed');
-      table.integer('age').notNullable();
-      table.integer('weight').notNullable();
+      table.integer('age');
+      table.integer('weight');
       table.string('vaccinations');
     });
   };
