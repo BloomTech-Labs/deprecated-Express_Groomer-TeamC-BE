@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const petsModel = require('./petsModel');
 
-// id in route is customer_id that is needed for getting all of the pets with the same id
+// id in route is customer_id that is needed for getting all of the pets with the same id my guy
 router.get('/get-all-pets/:id', async (req, res) => {
   try {
     const pets = await petsModel.findAll(req.params.id);
