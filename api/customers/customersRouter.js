@@ -81,6 +81,16 @@ router.put('/:id', async (req, res) => {
       });
     }
     if(req.body.favorite_groomers){
+      if(customer.favorite_groomers == null){
+        let body = req.body;
+        body.favorite_groomers = [req.body.favorite_groomers]
+        const updatedCustomer = await customersModel.update(
+          req.params.id,
+          body
+        );
+        return res.status(200).json(updatedCustomer);
+      }
+      else{
       const oldFav = customer.favorite_groomers;
       const newFav = [...oldFav, req.body.favorite_groomers];
       let newBody = req.body;
@@ -90,15 +100,7 @@ router.put('/:id', async (req, res) => {
         newBody
       );
       return res.status(200).json(updatedCustomer);
-    }
-    else{
-      const updatedCustomer = await customersModel.update(
-        req.params.id,
-        req.body
-      );
-      return res.status(200).json(updatedCustomer[0]);
-    }
-    
+    }}
   }
     catch (err) {
     res.status(500).json({ message: err.message });
