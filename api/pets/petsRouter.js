@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const petsModel = require('./petsModel');
 
-router.get('/getAllPets/:id', async (req, res) => {
+// id in route is customer_id that is needed for getting all of the pets with the same id
+router.get('/get-all-pets/:id', async (req, res) => {
   try {
     const pets = await petsModel.findAll(req.params.id);
     return res.status(200).json(pets);
@@ -14,16 +15,17 @@ router.get('/getAllPets/:id', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     pets = await petsModel.findById(req.params.id);
+    console.log(pets)
 
-    if (!pet) {
+    if (!pets) {
       return res.status(404).json({
         message: 'the pet with that id does not exist',
       });
     }
 
-    res.status(200).json(pet);
+    res.status(200).json(pets);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err });
   }
 });
 

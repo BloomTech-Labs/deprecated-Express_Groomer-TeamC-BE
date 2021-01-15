@@ -1,13 +1,9 @@
 const db = require('../../data/db-config');
 
 const findAll = async (id) => {
-  return await db('groomers_customers_services_pets').select('*').where({
+  return await db('pets').select('*').where({
     customer_id: id
   });
-};
-
-const findBy = (filter) => {
-  return db('pets').where(filter);
 };
 
 const findById = async (id) => {
