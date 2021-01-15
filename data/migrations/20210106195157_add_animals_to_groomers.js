@@ -1,7 +1,7 @@
 exports.up = (knex) => {
     return knex.schema.table('groomers', function (table) {
-        table.boolean('dogs')
-        table.boolean('cats')
+        table.boolean('dogs').defaultTo(false);
+        table.boolean('cats').defaultTo(false);
     });
   };
 
