@@ -9,7 +9,9 @@ module.exports = {
     ecmaVersion: 11,
   },
   plugins: ['prettier'],
-  rules: {},
+  rules: {
+    'prettier/prettier': 0,
+  },
   overrides: [
     {
       files: ['__tests__/*', '__tests__/**/*'],

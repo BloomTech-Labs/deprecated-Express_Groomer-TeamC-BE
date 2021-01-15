@@ -23,6 +23,7 @@ const indexRouter = require('./index/indexRouter');
 const profileRouter = require('./profile/profileRouter');
 const customerRouter = require('./customers/customersRouter');
 const groomerRouter = require('./groomers/groomersRouter');
+const petsRouter = require('./pets/petsRouter');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.use('/', indexRouter);
 app.use(['/profile', '/profiles'], profileRouter);
 app.use('/customers', customerRouter);
 app.use('/groomers', groomerRouter);
+app.use('/pets', petsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
