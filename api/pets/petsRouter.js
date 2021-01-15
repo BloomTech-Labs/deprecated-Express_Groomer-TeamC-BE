@@ -14,8 +14,7 @@ router.get('/get-all-pets/:id', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    pets = await petsModel.findById(req.params.id);
-    console.log(pets)
+    const pets = await petsModel.findById(req.params.id);
 
     if (!pets) {
       return res.status(404).json({
