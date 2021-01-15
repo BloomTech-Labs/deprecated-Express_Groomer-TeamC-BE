@@ -28,7 +28,6 @@ const remove = async (id) => {
 
 module.exports = {
   findAll,
-  findBy,
   findById,
   create,
   update,
