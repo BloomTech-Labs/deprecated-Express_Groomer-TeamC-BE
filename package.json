@@ -7,11 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "watch:dev": "nodemon",
-<<<<<<< HEAD
-    "lint": "npx eslint --fix.",
-=======
     "lint": "npx eslint . --fix",
->>>>>>> a0f6930584d970644490665fc0ad9df39f6ef685
     "lint:fix": "npx eslint --fix .",
     "format": "npx prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md)\"",
     "knex": "npx knex --knexfile config/knexfile.js",
