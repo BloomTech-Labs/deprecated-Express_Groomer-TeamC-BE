@@ -54,6 +54,8 @@ const groomers = [...new Array(100)].map(() => ({
   walk_rate: faker.random.number(30000),
   day_care_rate: faker.random.number(30000),
   vet_visit_rate: faker.random.number(30000),
+  dogs: faker.random.boolean(),
+  cats: faker.random.boolean(),
 }));
 
 exports.seed = function (knex) {
