@@ -6,10 +6,17 @@ exports.up = (knex) => {
         .inTable('customers')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
+<<<<<<< HEAD
       table.string('species');
       table.string('breed');
       table.integer('age');
       table.integer('weight');
+=======
+      table.string('species')
+      table.string('breed');
+      table.integer('age')
+      table.integer('weight')
+>>>>>>> 3780a1d5ebf54d5092125e0db4fd932a2974dfc2
       table.string('vaccinations');
     });
   };
