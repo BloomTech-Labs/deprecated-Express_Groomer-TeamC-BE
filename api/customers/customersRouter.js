@@ -80,7 +80,8 @@ router.put('/:id', async (req, res) => {
         message: 'the customer with that id does not exist',
       });
     }
-    if(req.body.favorite_groomers){
+
+    else if(req.body.favorite_groomers){
       if(customer.favorite_groomers == null){
         let body = req.body;
         body.favorite_groomers = [req.body.favorite_groomers]
@@ -95,12 +96,21 @@ router.put('/:id', async (req, res) => {
       const newFav = [...oldFav, req.body.favorite_groomers];
       let newBody = req.body;
       newBody.favorite_groomers = newFav;
+      console.log(newBody);
       const updatedCustomer = await customersModel.update(
         req.params.id,
         newBody
       );
       return res.status(200).json(updatedCustomer);
     }}
+    else{
+      console.log("were in");
+      const updatedCustomer = await customersModel.update(
+        req.params.id,
+        req.body
+      );
+      return res.status(200).json(updatedCustomer);
+    }
   }
     catch (err) {
     res.status(500).json({ message: err.message });
