@@ -4,8 +4,8 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('operational_model').insert([
-        {model: 'mobile'},
-        {model: 'stationary'}
+        {id: 1, model: 'mobile'},
+        {id: 2, model: 'stationary'}
       ]);
     });
 };
