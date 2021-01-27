@@ -1,9 +1,9 @@
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('operational_model').del()
     .then(function () {
       // Inserts seed entries
-      return knex('operational-model').insert([
+      return knex('operational_model').insert([
         {model: 'mobile'},
         {model: 'stationary'}
       ]);
