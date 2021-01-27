@@ -39,7 +39,8 @@ const faker = require('faker');
 //     cats: false,
 //   },
 // ];
-const groomers = [...new Array(100)].map(() => ({
+const groomers = [...new Array(100)].map((person, index) => ({
+  id: index + 1,
   photo_url: faker.image.avatar(),
   name: faker.name.firstName(),
   lastname: faker.name.lastName(),
