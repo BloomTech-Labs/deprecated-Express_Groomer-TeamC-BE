@@ -7,7 +7,7 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema.table('groomers', function (table) {
-      table.dropColumn('isMobile')
       table.dropColumn('isStationary')
+      table.dropColumn('isMobile')
   });
 };
