@@ -7,12 +7,15 @@ exports.seed = function (knex) {
       return knex('services').insert([
         {
           name: 'walk',
+          id: 1
         },
         {
           name: 'daycare',
+          id: 2
         },
         {
           name: 'vetVisit',
+          id: 3
         },
       ]);
     });
