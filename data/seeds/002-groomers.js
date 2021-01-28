@@ -40,7 +40,9 @@ const faker = require('faker');
 //   },
 // ];
 
-const groomers = [...new Array(100)].map(() => ({
+
+const groomers = [...new Array(100)].map((person, index) => ({
+  id: index + 1,
   photo_url: faker.image.avatar(),
   name: faker.name.firstName(),
   lastname: faker.name.lastName(),
@@ -59,6 +61,11 @@ const groomers = [...new Array(100)].map(() => ({
   cats: faker.random.boolean(),
   longitude: faker.address.longitude(),
   latitude: faker.address.latitude(),
+  isMobile: faker.random.boolean(),
+  isStationary: faker.random.boolean(),
+  doesWalks: faker.random.boolean(),
+  doesVetVisits: faker.random.boolean(),
+  doesDayCare: faker.random.boolean(),
 }));
 
 exports.seed = function (knex) {

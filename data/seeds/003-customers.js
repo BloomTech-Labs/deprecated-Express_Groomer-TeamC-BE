@@ -1,6 +1,7 @@
 const faker = require('faker/locale/en_US');
 
-const customers = [...new Array(100)].map(() => ({
+const customers = [...new Array(100)].map((person, index) => ({
+  id: index + 1,
   description: faker.lorem.paragraph(1),
   photo_url: faker.image.avatar(),
   name: faker.name.firstName(),
