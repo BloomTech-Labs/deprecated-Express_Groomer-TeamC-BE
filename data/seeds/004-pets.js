@@ -1,7 +1,12 @@
 const faker = require('faker');
 
-const pets = [...new Array(100)].map(() => ({
+const pets = [...new Array(3)].map((pet, index) => ({
+  id: index + 1,
+  customer_id: 1,
   name: faker.name.firstName(),
+  species: faker.name.lastName(),
+  age: faker.random.number(),
+  weight: faker.random.number(),
   description: faker.lorem.paragraph(1),
   photo_url: faker.image.avatar(),
 }));

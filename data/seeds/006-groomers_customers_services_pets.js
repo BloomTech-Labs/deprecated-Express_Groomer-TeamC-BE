@@ -1,9 +1,9 @@
 const faker = require('faker/locale/en_US');
 
 const groomers_customers_services_pets = [...new Array(100)].map(() => ({
-  customer_id: faker.random.number(100).once,
+  customer_id: faker.random.number(1).once,
   pet_id: faker.random.number(100).once,
-  groomer_id: faker.random.number(100).once,
+  groomer_id: faker.random.number(1).once,
 }));
 
 exports.seed = function (knex) {
