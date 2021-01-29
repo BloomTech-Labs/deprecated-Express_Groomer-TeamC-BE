@@ -83,7 +83,7 @@ router.put('/remove_favorite-groomer/:id', async (req, res) =>{
     let customer = await customersModel.findById(req.params.id);
     if(req.body){
       if(customer.favorite_groomers !== null){
-        filteredFavorites = customer.favorite_groomers.filter((fav) => fav !== req.body.favorite_groomers);
+        const filteredFavorites = customer.favorite_groomers.filter((fav) => fav !== req.body.favorite_groomers);
         customer.favorite_groomers = filteredFavorites;
       }
       const updatedCustomer = await customersModel.update(
