@@ -17,6 +17,7 @@ exports.up = (knex) => {
     table.integer('day_care_rate').unsigned();
     table.integer('vet_visit_rate').unsigned();
     table.timestamps(true, true);
+    
   });
 };
 

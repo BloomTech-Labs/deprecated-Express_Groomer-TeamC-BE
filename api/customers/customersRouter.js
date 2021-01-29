@@ -44,16 +44,64 @@ router.put('/:id', async (req, res) => {
       });
     }
 
-    const updatedCustomer = await customersModel.update(
-      req.params.id,
-      req.body
-    );
-
-    return res.status(200).json(updatedCustomer[0]);
-  } catch (err) {
+    else if(req.body.favorite_groomers){
+      if(customer.favorite_groomers == null){
+        let body = req.body;
+        body.favorite_groomers = [req.body.favorite_groomers]
+        const updatedCustomer = await customersModel.update(
+          req.params.id,
+          body
+        );
+        return res.status(200).json(updatedCustomer);
+      }
+      else{
+        const oldFav = customer.favorite_groomers;
+        const newFav = [...oldFav, req.body.favorite_groomers];
+        let newBody = req.body;
+        newBody.favorite_groomers = newFav;
+        const updatedCustomer = await customersModel.update(
+          req.params.id,
+          newBody
+      );
+      return res.status(200).json(updatedCustomer);
+    }}
+    else{
+      const updatedCustomer = await customersModel.update(
+        req.params.id,
+        req.body
+      );
+      return res.status(200).json(updatedCustomer);
+    }
+  }
+    catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
+
+router.put('/remove_favorite-groomer/:id', async (req, res) =>{
+  try{
+    let customer = await customersModel.findById(req.params.id);
+    if(req.body){
+      if(customer.favorite_groomers !== null){
+        filteredFavorites = customer.favorite_groomers.filter((fav) => fav !== req.body.favorite_groomers);
+        customer.favorite_groomers = filteredFavorites;
+      }
+      const updatedCustomer = await customersModel.update(
+        req.params.id,
+        customer
+      );
+      return res.status(200).json(updatedCustomer);
+    }
+    else{
+      return res.status(400).json({
+        message: 'request body is required',
+      });
+    }
+  }
+  catch(err){
+    res.status(500).json({ message: err.message })
+  }
+})
 
 router.post('/', async (req, res) => {
   try {
