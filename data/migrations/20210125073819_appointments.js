@@ -1,9 +1,10 @@
 exports.up = (knex) => {
   return knex.schema.createTable('appointments', function (table) {
-    table.integer('customer_id').references('id').inTable('customers');
-    table.integer('groomer_id').references('id').inTable('groomers');
-    table.string('date', 128);
-    table.string('time', 128);
+    table.increment('booking_id').primary()
+    table.integer('customer_id').references('id').inTable('customers').notNullable();
+    table.integer('groomer_id').references('id').inTable('groomers').notNullable();
+    table.string('date', 128).notNullable();
+    table.string('time', 128).notNullable();
     table.boolean('dog');
     table.boolean('cat');
   });
